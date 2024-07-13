@@ -2,11 +2,17 @@
 
 require __DIR__.'/vendor/autoload.php';
 
-use App\Command\Run;
-use Symfony\Component\Console\Application;
+use App\Command\Chat;
+use Ratchet\Server\IoServer;
+use Ratchet\Http\HttpServer;
+use Ratchet\WebSocket\WsServer;
 
-$application = new Application();
+$server = IoServer::factory(
+    new HttpServer(
+        new WsServer(
+            new Chat()
+        )
+    ),
+    8080);
 
-$application->addCommands([new Run()]);
-
-$application->run();
+$server->run();
