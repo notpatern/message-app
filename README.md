@@ -1,7 +1,7 @@
 
 # Messaging App Project
 
-This project is designed to help you learn how messaging apps work by building one from scratch using PHP, Composer, Ratchet, and Symfony. Below are the steps to set up and run the project, as well as an overview of the project's structure and functionality.
+This project is for us to learn how messaging apps work by building one from scratch using PHP, Composer, Ratchet, and Symfony.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
