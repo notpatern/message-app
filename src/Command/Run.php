@@ -17,7 +17,6 @@ class Run extends Command {
 
     public function execute(InputInterface $input, OutputInterface $output) : int {
         echo 'test' . PHP_EOL;
-
         return self::SUCCESS;
     }
 
