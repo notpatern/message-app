@@ -3,10 +3,12 @@
 require __DIR__.'/vendor/autoload.php';
 
 use App\Command\Run;
-use Symfony\Component\Console\Application;
+use Ratchet\Server\IoServer;
+use App\Command\Chat;
 
-$application = new Application();
+$server = IoServer::factory(
+    new Chat(),
+    8080
+);
 
-$application->addCommands([new Run()]);
-
-$application->run();
+$server->run();
