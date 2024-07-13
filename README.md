@@ -30,5 +30,16 @@ Before you begin, ensure you have met the following requirements:
 
    `composer install`
 
+## Server Routing setup process
+1. Forward the desired port on your personal machine or server.
+   
+2. Run the main.php file on the afore-mentioned machine.
+
+3. Send the server's public IP adress to the users.
+
+4. To connect a User to the server, run `telnet <public-server-ip-adress> <forwarded-server-port>`
+
+5. Start communicating! :)
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
