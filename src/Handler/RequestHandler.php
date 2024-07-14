@@ -2,7 +2,6 @@
 
 namespace App\Handler;
 
-use IMAP\Connection;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
