@@ -2,6 +2,7 @@
 
 namespace App\Handler;
 
+use IMAP\Connection;
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
 
@@ -15,23 +16,26 @@ class RequestHandler implements MessageComponentInterface
     public function onOpen(ConnectionInterface $conn)
     {
         $this->clients->attach($conn);
-        echo "New conenction: {$conn->resourceId}\n";
+        echo "New connection: id->{$conn->resourceId}\n";
     }
 
     public function onMessage(ConnectionInterface $from, $msg)
     {
         foreach ($this->clients as $client) {
             if (!($from == $client)) {
-                $client->send($msg);
+                $client->send("id{$from->resourceId}: ".$msg."\r\n");
             }
         }
     }
 
     public function onClose(ConnectionInterface $conn)
     {
+        $this->clients->detach($conn);
+        echo "Connection ended: id->{$conn->resourceId}\n";
     }
 
     public function onError(ConnectionInterface $conn, \Exception $e)
     {
+        echo "Error: {$conn->resourceId}->{$e}";
     }
 }
