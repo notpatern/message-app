@@ -16,6 +16,7 @@ class RequestHandler implements MessageComponentInterface
     {
         $this->clients->attach($conn);
         echo "New connection: id->{$conn->resourceId}\n";
+        $conn->send("Connected to server\r\n");
     }
 
     public function onMessage(ConnectionInterface $from, $msg)
