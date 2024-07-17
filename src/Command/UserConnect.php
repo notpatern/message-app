@@ -12,7 +12,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class UserConnect extends Command {
     private string $username;
     private string $uri;
-    private string $port;
+    private int $port;
 
     protected function configure() : void {
         $this
